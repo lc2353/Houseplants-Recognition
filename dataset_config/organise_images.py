@@ -2,8 +2,8 @@ import os
 from PIL import Image
 
 # Define the paths for the original and resized images
-original_images_path = "plant_images"
-new_images_path = "houseplants_dataset"
+original_images_path = "dataset_config/pothos_images"
+new_images_path = "pothos_dataset"
 
 # Loop through all the plant folders in the original images path
 for plant_folder in os.listdir(original_images_path):

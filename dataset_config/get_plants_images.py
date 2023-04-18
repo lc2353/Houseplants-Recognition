@@ -4,12 +4,12 @@ import os
 
 # Define a list of plant names to search for
 plant_names = []
-with open("dataset_config/plants.txt", "r") as p:
+with open("dataset_config/pothos.txt", "r") as p:
     for line in p:
         plant_names.append(line.strip())
 
 # Create a directory to store the images
-parent_dir = "dataset_config/plant_images"
+parent_dir = "dataset_config/pothos_images"
 if not os.path.exists(parent_dir):
     os.makedirs(parent_dir)
 
@@ -22,7 +22,7 @@ for plant_name in plant_names:
         os.makedirs(directory)
 
     # Construct the search query URL
-    query_url = f'https://www.google.com/search?q={plant_name}+house+plant&tbm=isch'
+    query_url = f'https://www.google.com/search?q={plant_name}+leaf&tbm=isch'
 
     # Send an HTTP GET request to the query URL and parse the response with BeautifulSoup
     response = requests.get(query_url)
@@ -33,7 +33,7 @@ for plant_name in plant_names:
     for img in soup.find_all('img'):
         if 'http' in img['src']:
             image_urls.append(img['src'])
-            if len(image_urls) == 6:
+            if len(image_urls) == 20:
                 break
 
     for i, url in enumerate(image_urls):
