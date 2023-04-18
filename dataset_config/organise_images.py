@@ -24,7 +24,7 @@ for plant_folder in os.listdir(original_images_path):
         # Resize the image using your preferred method
         img = Image.open(os.path.join(plant_path, image))
         # Save the resized image to the appropriate folder (training or test)
-        if i < 3:
+        if i % 2 == 0:
             destination_path = os.path.join(
                 training_path, f"{plant_folder}_{image}")
         else:
